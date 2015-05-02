@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://chatserver/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://chatserver/">
+
+<xs:element name="getClientList" type="tns:getClientList"/>
+
+<xs:element name="getClientListResponse" type="tns:getClientListResponse"/>
+
+<xs:element name="getLastUserUpdate" type="tns:getLastUserUpdate"/>
+
+<xs:element name="getLastUserUpdateResponse" type="tns:getLastUserUpdateResponse"/>
+
+<xs:element name="getMessages" type="tns:getMessages"/>
+
+<xs:element name="getMessagesResponse" type="tns:getMessagesResponse"/>
+
+<xs:element name="join" type="tns:join"/>
+
+<xs:element name="joinResponse" type="tns:joinResponse"/>
+
+<xs:element name="leave" type="tns:leave"/>
+
+<xs:element name="sendMessage" type="tns:sendMessage"/>
+
+<xs:complexType name="getMessages">
+<xs:sequence>
+<xs:element name="user" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMessagesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:message" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="message">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+<xs:element name="receiver" type="xs:string" minOccurs="0"/>
+<xs:element name="sender" type="xs:string" minOccurs="0"/>
+<xs:element name="timestamp" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getClientList">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getClientListResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLastUserUpdate">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getLastUserUpdateResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendMessage">
+<xs:sequence>
+<xs:element name="message" type="tns:message" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="join">
+<xs:sequence>
+<xs:element name="user" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="joinResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="leave">
+<xs:sequence>
+<xs:element name="user" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
